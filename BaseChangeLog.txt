@@ -1,0 +1,110 @@
+* Mon Feb 29 2016 Agustin Gonzalez <lucas@tid.es> 1.3.1
+- FEATURE DM-581: Cross Site Scripting prevention: non-existing resources will not be allowed.
+- FEATURE DM-1145: Identifier(or name) and type in entity, attribute and metadata has forbidden characters.
+- FEATURE DM-1074: device configuration retrieval for Repsol Telegestion.
+- FIX DM-1179: Problem in iota manager when delete a device with no recommended characters like device+36
+- FIX DM-1218: Space in log level INFO and code 1 is changed by 999.
+- FIX DM-1146: Only one device can be modify (PUT). This allows to apply format rules in every module/protocol.
+- FIX DM-1226: bad command state when iotagents in HA
+- FIX DM-1311: Escaped double quotes in Repsol Telegestion command response
+- FIX DM-1343:  HA: iotmanager does not reconnect to mongo primary again
+- FIX DM-1315: Double quotes (forbidden character) in contextResponse.
+- FIX DM-1359: De-registration and registration with wrong type after IOTA restart
+
+* Mon Nov 30 2015 Agustin Gonzalez <lucas@tid.es> 1.3.0
+- FEATURE DM-674: Support Cross-IoTA generic command parameters.
+- FEATURE DM-208: Support Modbus frames.
+- FEATURE DM-706: Add service and subservice to alarm information.
+- FEATURE DM-714: Alarm (error) when agent does not get token as PEP.
+- FEATURE DM-628: Modbus: Repsol Telegestion supports Modbus commands.
+- FEATURE DM-717: Modbus: Historic data processing, interpret numeric data with decimals
+- FIX DM-1066: Add method to complete service information based on plugin.
+- FIX DM-1115: if ContextBroker response 502, ul2, respsol, modbus must create an alarm with service, subservice
+- FIX DM-1120: Check if command is full confirmed (echo response).
+- FIX DM-1123: Command response must have length 8 (strictly).
+- FIX DM-1218: Log with level INFO is malformed and alarm code "1" is not supported by O&M (changed to 999).
+
+* Wed Sep 30 2015 Agustin Gonzalez <lucas@tid.es> 1.2.1
+- FEATURE IDAS-20527: New identifier for IoTAgent if dynamic address is a problem.
+- FIX IDAS-20575: Unregister device from Context Broker when device is deleted.
+- FIX IDAS-20576: Delete device from internal cache when device is deleted.
+- FIX IDAS-20581: Operations with device identifier containing a space.
+
+* Fri Jul 31 2015 Agustin Gonzalez <lucas@tid.es> 1.2.0
+- FEATURE IDAS-20524: Add metadatas to attributes in device provision.
+- FEATURE IDAS-20527: Manager add error field ("errors") when agent fails.
+- FEATURE IDAS-20539: Protocol Description change and can be modified in configuration file.
+- FEATURE IDAS-20526: Forbidden characters in API provision.
+- FEATURE IDAS-20556: IpV6 support
+- FIX IDAS-20544: Cannot remove cbroker url with PUT service.
+- FIX IDAS-20548: IoTA crash in statistics.
+- FIX IDAS-20542: IoTA PEP dont check uri to define a resource.
+- FIX IDAS-20551: IoTA log FATAL when set_option is not implemented by module.
+- FIX IDAS-20560: Manager (POST device/service) does not return 200 with
+  'errors' field.
+
+* Wed Jun 30 2015 Agustin Gonzalez <lucas@tid.es> 1.1.0
+- FEATURE IDAS-20504: Improve building process with third party sofware.
+- FEATURE IDAS-20507: Add mongo connection pool.
+- FEATURE IDAS-20515: Create entity after provisioning or modifying a device.
+- FEATURE IDAS-20517: IoTA Manager device pagination.
+- FIX IDAS-20529: New service needs context boker information.
+- FIX IDAS-20532: IoTA Manager register needs context broker information.
+- FIX IDAS-20523: Entity creation by new device uses a wrong entity type.
+- FIX IDAS-20537: UL20 agent repeats X-Auth-Token header when it send to CB with authorization.
+- FIX IDAS-20525: Context Broker Communicator tries one more time if unauthorized.
+
+* Thu Apr 30 2015 Agustin Gonzalez <lucas@tid.es> 1.0.1
+- FEATURE IDAS-20246: Add parameters (resource, apikey, device, entity) to operations over services and devices
+- FEATURE IDAS-20232: Installing iotagent RPMS in Filab (RPM installation guide in deploy.md)
+- FEATURE IDAS-20006: Puppet recipes.
+- FEATURE IDAS-20227: Add north-bound API for services no REST
+- FEATURE IDAS-20221: Register provider creating and modifying devices
+- FEATURE IDAS-20218: Add default context broker endpoint
+- FEATURE IDAS-20156: Documentation.
+- FEATURE IDAS-20196: Create a sample to build a plugin/module.
+- FEATURE IDAS-20134: Authorization and Access Control integration with Keystone
+- FEATURE IDAS-20134: Add PEP proxy functionality for provision API and Trust Token for CB
+- FEATURE IDAS-20154: Provision API in IoT Agent.
+- FEATURE IDAS-20366: VPNs support through proxy ending GRE tunnels. Specific configuration by header.
+- FEATURE IDAS-20256: Oauth flows in commands from Context Broker.
+- FEATURE IDAS-20368: IoTA Manager is the entry point to IoT Agent cluster.
+- FEATURE IDAS-20255: Attributes and static attributes can be configured by service.
+- FEATURE IDAS-20459: Check Fiware-Service and Fiware-ServicePath (naming
+  conventions).
+- FEATURE IDAS-20515: When new device, IoTA creates entity in CB.
+- FIX IDAS-20249: Duplicated headers in authorization requests.
+- FIX IDAS-20248: Command response must not be forwarded to CB after command timeout
+- FIX IDAS-20231: expired commands don&#39;t send to the correct CB
+- FIX IDAS-20228: get_device without subservice fails with storage file
+- FIX IDAS-20151: Command timeout is not correctly cancelled when command response is received
+- FIX IDAS-20020: doesn&#39;t work commands without entity_type, double search implemented, inactive devices don&#39;t do anything, messages
+- FIX IDAS-20230: File descriptors remain open, due to http_client is stoped but not destroyed.
+- FIX IDAS-20219: Updating in BD registrationID received from CB
+- FIX IDAS-20225: Timeout is not returned in HTTP comms
+- FIX IDAS-20217: Schemas does not include commands
+- FIX IDAS-20173: Commands does not work  by devices registered with empty entity_type  or  entity_name
+- FIX IDAS-20214: crash when config.json does not exists
+- FIX IDAS-20154: Duplicated devices, create unique index in code
+- FIX IDAS-20213: devices weren&#39;t found when there are more than one services with apikey &quot;&quot;. Solution is to use get_device and get_service_by_name instead of &quot;get_service_by_apikey&quot;
+- FIX IDAS-20206: Response to command with Info is not correctly send to CB.
+- FIX IDAS-20212: If service/service_path does not exist, device is not added
+- FIX IDAS-20210: GET all services ignores Fiware-ServicePath header
+- FIX IDAS-20208: Add Content-Type to API responses and format GET devices
+- FIX IDAS-20207: Fiware-ServicePath must start with /
+- FIX IDAS-20205: Remove internal mongo _id from responses
+- FIX IDAS-20202: Compound attributes are not added to context element
+- FIX IDAS-20199: Fiware-Service is not used. JSON include service and service_path as mandatory
+- FIX IDAS-20198: Function name in logs does not correct. Update library log4cplus (1.1.3-rc4)
+- FIX IDAS-20389: attribute default type is string
+- FIX IDAS-20378: push command with 202, thread with response ok is faster than thread with delivered (202 response) son in CB ok response is lost
+- FIX IDAS-20409: Set mongo default timeout (tcp timeout for read/write) in 3 seconds.
+- FIX IDAS-20479: crash when manager starts and iota_manager is defined in
+  configuration file.
+- FIX IDAS-20477: Error in RegisterContext from a device with no entity_name and no entity_type.
+- FIX IDAS-20478: Duplicated commands in RegisterContext.
+- FIX IDAS-20489: PUT /services in manager accepts apikey as parameter to modify apikey.
+- FIX IDAS-20512: IoTA updateContest response is wrong.
+- FIX IDAS-20518: Manager crashes when agent refuses connection.
+- FIX IDAS-20513: Command expired send updateContext with wrong entity name.
+- FIX IDAS-20516: New device does not use service path.

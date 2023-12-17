@@ -1,0 +1,49 @@
+{
+    "ngsi_url": {
+        "cbroker": "http://ORION_HOSTNAME:ORION_PORT",
+        "updateContext": "/NGSI10/updateContext",
+        "registerContext": "/NGSI9/registerContext",
+        "queryContext": "/NGSI10/queryContext"
+    },
+    "iota_manager" : "http://127.0.0.1:8081/iot/protocols",
+    "timeout": 10,
+    "http_proxy": "PUBLIC_PROXY_PORT",
+    "public_ip": "PUBLIC_IP_PORT",
+    "dir_log": "/var/log/iot/",
+    "timezones": "/etc/iot/date_time_zonespec.csv",
+    "storage": {
+        "host": "MONGODB_HOSTNAME",
+        "type": "mongodb",
+        "port": "MONGODB_PORT",
+        "dbname": "iot"
+    },
+    "oauth": {
+        "on_behalf_trust_url":"http://KEYSTONE_HOSTNAME:KEYSTONE_PORT/v3/auth/tokens",
+        "on_behalf_trust":"http://KEYSTONE_HOSTNAME:KEYSTONE_PORT/v3/auth/tokens",
+        "validate_token_url": "http://KEYSTONE_HOSTNAME:KEYSTONE_PORT/v3/auth/tokens",
+        "get_roles_url": "http://KEYSTONE_HOSTNAME:KEYSTONE_PORT/v3/role_assignments",
+        "retrieve_subservices_url": "http://KEYSTONE_HOSTNAME:KEYSTONE_PORT/v3/projects",
+        "access_control_url": "http://KEYPASS_HOSTNAME:KEYPASS_PORT/pdp/v3/",
+        "pep_user": "pep",
+        "pep_password": "PEP_PASSWORD",
+        "pep_domain": "admin_domain",
+        "on_behalf_user": "iotagent",
+        "on_behalf_password": "IOTAGENT_PASSWORD",
+        "timeout": 5
+    },
+   "resources": [
+        {
+            "resource": "/iot/d",
+            "options": {
+                "FileName": "UL20Service"
+            }
+        },
+        {
+            "resource": "/iot/mqtt",
+            "options": {
+                "ConfigFile" : "/etc/iot/MqttService.xml",
+                "FileName": "MqttService"
+            }
+         }
+   ]
+}

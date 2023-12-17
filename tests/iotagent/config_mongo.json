@@ -1,0 +1,95 @@
+{
+    "ngsi_url": {
+        "updateContext": "/NGSI10/updateContext",
+        "registerContext": "/NGSI9/registerContext",
+        "queryContext": "/NGSI10/queryContext"
+    },
+    "timeout": 1,
+    "public_ip": "127.0.0.1",
+    "dir_log": "/tmp/",
+    "timezones": "/etc/iot/date_time_zonespec.csv",
+    "schema_path": "../../schema",
+    "storage": {
+        "host": "127.0.0.1",
+        "type": "mongodb",
+        "dbname": "iotest"
+    },
+    "resources": [
+        {
+            "resource": "/TestAdmin/evadts",
+            "services": [
+                {
+                    "apikey": "apikey3",
+                    "cbroker": "http:://0.0.0.0:1026",
+                    "service": "6664",
+                    "entity_type": "thing",
+                    "service_path": "servicepath3",
+                    "token": "token3"
+                }
+            ]
+        },
+        {
+            "resource": "/TestTT/tt",
+            "options": {
+                "ConfigFile": "TTService.xml",
+                "FileName": "TTService"
+            },
+            "services": [
+                {
+                    "apikey": "1234",
+                    "service": "service2",
+                    "service_path": "/ssrv2",
+                    "token": "token6",
+                    "entity_type": "thing",
+                    "cbroker": "http://127.0.0.1:1026"
+                }
+            ]
+        },
+        {
+            "resource": "/TestUL/d",
+            "options": {
+                "FileName": "UL20Service"
+            },
+            "services": [
+                {
+                    "apikey": "apikey",
+                    "service": "s1",
+                    "service_path": "/ss1",
+                    "token": "token2",
+                    "cbroker": "http://127.0.0.1:1026",
+                    "entity_type": "thing"
+                }
+            ]
+        },
+        {
+            "resource": "/iot/evadts",
+            "services": [
+                {
+                    "apikey": "apikey3",
+                    "cbroker": "http:://0.0.0.0:1026",
+                    "service": "6664",
+                    "entity_type": "thing",
+                    "service_path": "servicepath3",
+                    "token": "token3"
+                }
+            ]
+        },
+        {
+            "resource": "/iot/mqtt",
+            "options": {
+                "ConfigFile": "MqttService.xml",
+                "FileName": "MqttService"
+            },
+            "services": [
+                {
+                    "apikey": "1234",
+                    "service": "service2",
+                    "service_path": "/ssrv2",
+                    "token": "token6",
+                    "entity_type": "thing",
+                    "cbroker": "http://127.0.0.1:1026"
+                }
+            ]
+        }
+    ]
+}
